@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+const counter = 4;
 
 function App() {
   //Initialise a state array that has 3 todos
@@ -24,7 +25,7 @@ function App() {
   // Using spread operator, [...todos]
   function addTodo(){
     setTodos([...todos, {
-      id: 4,
+      id: counter++,
        title: Math.random(),
        description: Math.random()
     }])
@@ -35,7 +36,7 @@ function App() {
     <>
       <div>
         <button onClick={addTodo}>Add a todo</button><br />
-         {todos.map(todo => <Todo title={todo.title} description={todo.description}/>)} 
+         {todos.map(todo => <Todo key={todo.id} title={todo.title} description={todo.description}/>)} 
       </div>
     </>
   )
@@ -45,9 +46,9 @@ function App() {
 function Todo({title, description}){
   return(
     <div>
-      <h1>
+      <h2>
         {title}
-      </h1>
+      </h2>
       <h3>
         {description}
       </h3>
