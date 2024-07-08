@@ -12,7 +12,7 @@ function App() {
       </div>
     </>   
   )
-}
+} 
 
 function CardWrapper({children}){
   return(
