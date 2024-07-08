@@ -1,24 +1,26 @@
 
 function App() {
   return(
-    <div><CardWrapper innerComponent={<TextWrapper />} /></div>    
+    <>
+      <div>
+        <CardWrapper>
+          Hi There
+          </CardWrapper>
+          <CardWrapper>
+          lets code!
+          </CardWrapper>
+      </div>
+    </>   
   )
 }
 
-function CardWrapper({innerComponent}){
+function CardWrapper({children}){
   return(
-    <div style={{border: "4px solid white"}}>
-      {innerComponent}
+    <div style={{border: "4px solid white", padding: 20, alignText: "center"}}>
+      {children}
     </div>
   )
 }
 
-function TextWrapper(){
-  return(
-    <div>
-      Hi there
-    </div>
-  )
-}
 
 export default App
