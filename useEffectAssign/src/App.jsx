@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import { useEffect } from 'react';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,8 +16,10 @@ function App() {
 
 function Todo({id}){
   const [todo, setTodo] = useState([]);
+   useEffect(()=>{
+    axios.get
+   }, [])
 
-  
 }
 
 export default App
