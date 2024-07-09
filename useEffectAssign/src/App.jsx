@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <div>
-        <Todo id={1}/>
+        <Todo id={3}/>
       </div>
     </>
   )
@@ -18,7 +18,7 @@ function Todo({id}){
   const [todo, setTodo] = useState([]);
   // initial logic
    useEffect(()=>{
-    axios.get("https://sum-server.100xdevs.com/todo?id=3").then(function(response){
+    axios.get(`https://sum-server.100xdevs.com/todo?id=${id}`).then(function(response){
       setTodo(response.data.todo)
     })
    }, [])
