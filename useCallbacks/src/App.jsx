@@ -1,12 +1,13 @@
 import { memo, useState } from "react";
 import './App.css';
+import { useCallback } from "react";
 
 function App() {
   const [count, setCount] = useState(0)
 
-  function logClick() {
+  const logClick = useCallback (() => {
     console.log("child clicked")
-  }
+  },[])
 
   return <div>
     <Child InputFunc={logClick} />
