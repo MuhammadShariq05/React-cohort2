@@ -25,7 +25,6 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -45,6 +44,8 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin-right: 10px; /* Add space between buttons */
+  margin-left: 10px;
 }
 button:hover {
   border-color: #646cff;
@@ -52,6 +53,14 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.count {
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+  justify-content: center; /* Center the count item horizontally */
+  align-items: center;
+  margin-top: 20px; /* Add space between the count item and buttons */
 }
 
 @media (prefers-color-scheme: light) {
@@ -66,3 +75,4 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+

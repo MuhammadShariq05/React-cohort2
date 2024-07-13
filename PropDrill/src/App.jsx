@@ -1,33 +1,63 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { CounterProvider, useCounter } from './Context';
+
+
+const Counter = () => {
+  const { count, increment, decrement } = useCounter();
+
+  return (
+    <div>
+      <h4>Counter: {count}</h4>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
+};
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+      <div className='count'>
+        <Count count={count}/>
+        <Button count={count} setCount={setCount}/>
+      </div>
+
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <CounterProvider>
+      <div className="App">
+        <h4>Counter with Context API</h4>
+        <Counter />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+    </CounterProvider>  
+      </div>    
+    </>
+  )
+}
+
+// Porp drilling
+function Count({count}){
+  return(
+    <div>
+      {count}
+      {/* <Button count={count} setCount={setCount}/> */}
+    </div>
+  )
+}
+
+function Button({count, setCount}){
+  return(
+    <>
+      <div>
+        <button onClick={()=>{
+          setCount(count-1)
+        }}>-</button>
+        <button onClick={()=>{
+          setCount(count+1)
+        }}>+</button>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
