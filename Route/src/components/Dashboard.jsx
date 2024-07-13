@@ -1,7 +1,8 @@
 export function Dashboard(){
   return(
-    <div>
-      Dashboard Page
-    </div>
+    <div style={{alignItems: "center", display: "flex"}}>
+      Dashboard
+  </div>
+
   )
 }

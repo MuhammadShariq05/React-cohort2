@@ -14,6 +14,17 @@ function App() {
       <div>
         <div className='topbar'>
           Top Bar
+          <button onClick={() => {
+            // 1st method global locatoin object in react 
+            window.location.href="/landing";
+          }}>
+            landing
+          </button>
+          <button onClick={() => {
+            window.location.href="/dashboard";
+          }}> 
+            dashboard
+          </button>
         </div>
       <BrowserRouter>
           <Routes>
