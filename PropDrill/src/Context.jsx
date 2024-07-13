@@ -11,6 +11,7 @@ export const CounterProvider = ({ children }) => {
   const increment = () => setCount(count + 1);
   const decrement = () => setCount(count - 1);
 
+  // Wrap anyone that wants t0 use the teleported value inside a provider
   return (
     <CounterContext.Provider value={{ count, increment, decrement }}>
       {children}
