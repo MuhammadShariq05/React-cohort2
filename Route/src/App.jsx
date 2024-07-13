@@ -1,28 +1,24 @@
-import { useState } from "react";
+import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import "./App.css";
-// import { Dashboard } from './components/Dashboard';
-// import { Landing } from './components/Landing';
-const Dashboard = React.lazy(() => {
-  import("./components/Dashboard");
-});
-const Landing = React.lazy(() => {
-  import("./components/Landing");
-});
+
+const Dashboard = lazy(() => import("./components/Dashboard"));
+const Landing = lazy(() => import("./components/Landing"));
+
 function App() {
   return (
-    <>
-      <div>
-        {/* client site routing */}
-        <BrowserRouter>
-          <Approute />
+    <div>
+      {/* Client-side routing */}
+      <BrowserRouter>
+        <Approute />
+        <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/landing" element={<Landing />} />
           </Routes>
-        </BrowserRouter>
-      </div>
-    </>
+        </Suspense>
+      </BrowserRouter>
+    </div>
   );
 }
 
@@ -35,18 +31,19 @@ function Approute() {
         Top Bar
         <button
           onClick={() => {
-            // 1st method global locatoin object in react
+            // Navigate to the landing page
             navigate("/landing");
           }}
         >
-          landing
+          Landing
         </button>
         <button
           onClick={() => {
+            // Navigate to the dashboard page
             navigate("/dashboard");
           }}
         >
-          dashboard
+          Dashboard
         </button>
       </div>
     </div>
