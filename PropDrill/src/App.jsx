@@ -9,8 +9,8 @@ const Counter = () => {
   return (
     <div>
       <h4>Counter: {count}</h4>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
+      <button onClick={decrement}>-</button>
+      <button onClick={increment}>+</button>
     </div>
   );
 };
@@ -21,10 +21,12 @@ function App() {
   return (
     <>
       <div className='count'>
-        <Count count={count}/>
+        <h4>Counter without context API</h4>
+        <h4><Count count={count} /></h4>
         <Button count={count} setCount={setCount}/>
       </div>
 
+      {/* context api code */}
       <div>
       <CounterProvider>
       <div className="App">

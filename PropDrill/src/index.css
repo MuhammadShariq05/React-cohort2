@@ -57,7 +57,7 @@ button:focus-visible {
 
 .count {
   margin-bottom: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 5px;
   justify-content: center; /* Center the count item horizontally */
   align-items: center;
   margin-top: 20px; /* Add space between the count item and buttons */
