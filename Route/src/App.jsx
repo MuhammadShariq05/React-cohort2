@@ -1,14 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import './App.css';
+import { Dashboard } from './components/Dashboard';
+import { Landing } from './components/Landing';
+
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      
+      {/* client site routing */}
+      <div>
+        <div className='topbar'>
+          Top Bar
+        </div>
+      <BrowserRouter>
+          <Routes>
+            <Route path="/dashboard" element={<Dashboard />}/>
+            <Route path="/landing" element={<Landing />}/>
+          </Routes>
+      </BrowserRouter>
+      </div>
     </>
   )
 }
