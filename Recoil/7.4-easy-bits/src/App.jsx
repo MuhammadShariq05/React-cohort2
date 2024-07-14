@@ -3,7 +3,8 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { RecoilRoot, useRecoilValue } from "recoil";
-import { networkAtom } from "./atoms";
+import { jobsAtom, networkAtom, notificationAtom, messagingAtom, totalMeCountSelecter } from "./atoms";
+import { useMemo } from "react";
 
 function App() {
   
@@ -18,7 +19,25 @@ function App() {
 }
 
 function RecoilApp() {
-  const networkNotificationCount = useRecoilValue(networkAtom);
+  const networkCount = useRecoilValue(networkAtom);
+  const jobCount = useRecoilValue(jobsAtom);
+  const notificationCount = useRecoilValue(notificationAtom)
+  const messagingCount = useRecoilValue(messagingAtom)
+
+  // Want to add the total into me
+  // first way to do it 
+  // using memo
+
+  /* const totalMeCount = useMemo(()=>{
+    return networkCount + jobCount + notificationCount + messagingCount;
+  }, [networkCount, jobCount, notificationCount, messagingCount]) */
+
+  // somthing better than this, recoil gives us access to a 
+  // component called seleter which do the same job as useMemo
+  // in a recoil way
+  const totalMeCount = useRecoilValue(totalMeCountSelecter);
+
+
   return (
     <div class="topnav">
       <button>Home</button>
@@ -27,10 +46,10 @@ function RecoilApp() {
         My Network (
         {networkNotificationCount >= 100 ? "99+" : networkNotificationCount})
       </button>
-      <button>Jobs</button>
-      <button>Messaging</button>
-      <button>Notification</button>
-      <button>Me</button>
+      <button>Jobs ( {jobCount} )</button>
+      <button>Messaging ( {messagingCount} )</button>
+      <button>Notification ( {notificationCount} )</button>
+      <button>Me ( {totalMeCount} )</button>
     </div>
   );
 }
