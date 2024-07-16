@@ -1,6 +1,7 @@
 import { atomFamily } from "recoil";
 import { TODOS } from "./todos";
 
+// let u dynamically create atom   
 export const todosAtomFamily = atomFamily({
   key: "todosAtomFamily",
   default: (id) => {
