@@ -11,6 +11,7 @@ function App() {
       {/* Client-side routing */}
       <BrowserRouter>
         <Approute />
+        {/* Suspense allows us to asynchronously fetch the data */}
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
@@ -24,7 +25,10 @@ function App() {
 
 function Approute() {
   const navigate = useNavigate();
-
+  /*
+    note: The useNavigate hook from react-router-dom allows you to programmatically navigate to different routes in a React application
+    it expects whenever u are using me, make sure to make that component inside that <browserRouter
+  */
   return (
     <div>
       <div className="topbar">
