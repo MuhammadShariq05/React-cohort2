@@ -1,4 +1,7 @@
 import "./App.css";
+
+// Do u use the context API to make rendering more performant?
+// And: no, we use to make the syntax clean and get rid of prop drilling
 import {
   RecoilRoot,
   useRecoilState,
