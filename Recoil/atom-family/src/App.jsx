@@ -1,5 +1,5 @@
 import "./App.css";
-import { RecoilRoot, useRecoilState } from "recoil";
+import { RecoilRoot, useRecoilState, useRecoilValue  } from "recoil";
 import { todosAtomFamily } from "./atoms";
 
 function App() {
@@ -12,11 +12,11 @@ function App() {
 }
 
 function Todo({ id }) {
-  const todo = useRecoilValu(todosAtomFamily(id));
+  const todo = useRecoilValue(todosAtomFamily(id));
 
   return (
     <>
-      {todo.title}
+      {todo.title} <br />
       {todo.description}
       <br />
     </>
