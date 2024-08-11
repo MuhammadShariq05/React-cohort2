@@ -29,12 +29,12 @@ function MainApp() {
       <button>Home</button>
 
       <button>
-        My network{" "}
-        {networkCount.networks >= 100 ? "99+" : networkCount.networks}
+        My Network
+        ({networkCount.network >= 100 ? "99+" : networkCount.network})
       </button>
-      <button>Jobs {networkCount.jobs}</button>
-      <button>Messaging {networkCount.messaging}</button>
-      <button>Notifications {networkCount.notifications}</button>
+      <button>Jobs ({networkCount.jobs})</button>
+      <button>Messaging ({networkCount.messaging})</button>
+      <button>Notifications ({networkCount.notifications})</button>
 
       <button>Me ({totalNotificationCount})</button>
     </>
